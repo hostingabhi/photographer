@@ -21,9 +21,9 @@ export default class JobController{
        return res.render('newjob',{userEmail: req.session.userEmail}); 
     }
     postjob(req,res,next){
-        const {name, description, contact, gmail, linkdin } = req.body;
+        const {name, description, contact, gmail, linkedin } = req.body;
         const imageUrl = 'Photo/'+ req.file.filename;
-        Photographer.addjob(name, description, contact, gmail, linkdin,imageUrl);
+        Photographer.addjob(name, description, contact, gmail, linkedin,imageUrl);
         let jobs = Photographer.get()
         res.render('jobs',{jobs:jobs,errorMessage:null,userEmail: req.session.userEmail})
     }

@@ -1,11 +1,11 @@
 export default class Photographer{
-    constructor( _id, _name, _desc, _contact, _gmail, _linkdin, _imageUrl){
+    constructor( _id, _name, _desc, _contact, _gmail, _linkedin, _imageUrl){
         this.id = _id
         this.name = _name
         this.desc = _desc
         this.contact = _contact
         this. gmail = _gmail
-        this.linkdin = _linkdin
+        this.linkedin = _linkedin
         this.imageUrl  = _imageUrl
     }
     static get(){
@@ -16,17 +16,18 @@ export default class Photographer{
         const jobId = parseInt(id);
         return PhotographerDetails.find(job => job.id === jobId);
     }
-    static addjob(name, description, contact, gmail, linkdin,imageUrl){
+    static addjob(name, description, contact, gmail, linkedin,imageUrl){
         let newjob = new Photographer(
             PhotographerDetails.length+1,
             name,
             description,
             contact,
             gmail,
-            linkdin,
+            linkedin,
             imageUrl
         )
         PhotographerDetails.push(newjob);
+        console.log(PhotographerDetails)
     }
     static delete(id){
         const index = jobs.findIndex((job) => job.id == id);

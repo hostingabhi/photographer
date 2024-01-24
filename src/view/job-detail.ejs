@@ -7,7 +7,7 @@
         <div class="card-body text-center">
           <!-- Your content goes here -->
           <div style="color: black;">
-            <div><img src="<%=job.imageUrl %>" alt=""></div>
+            <div><img src="../../<%= job.imageUrl %>"  alt="..."></div>
             <div> Name : <%= job.name %></div>
             <div> Description : <%= job.desc %></div>
             <div> Contact Number : <%= job.contact %></div>
@@ -22,7 +22,7 @@
 </div>
 <script>
   function redirectToLinkedIn() {
-    window.location.href = '<%= job.linkdin %>';
+    window.location.href = '<%= job.linkedin %>';
   }
 </script>
 <script src="../main.js"></script>
