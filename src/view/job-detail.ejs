@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12 d-flex justify-content-center">
+      <!-- Thin Line Box with Image Banner -->
+      <div class="card border-5">
+        <img src="../../image/hireaphoto.jpg" class="card-img-top" alt="Banner Image">
+        <div class="card-body text-center">
+          <!-- Your content goes here -->
+          <div style="color: black;">
+            <div><img src="<%=job.imageUrl %>" alt=""></div>
+            <div> Name : <%= job.name %></div>
+            <div> Description : <%= job.desc %></div>
+            <div> Contact Number : <%= job.contact %></div>
+            <div> Gmail :  <%= job.gmail %></div>
+            <br>
+            <div> <button onclick="redirectToLinkedIn()" class="btn btn-primary">LinkedIn </button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function redirectToLinkedIn() {
+    window.location.href = '<%= job.linkdin %>';
+  }
+</script>
+<script src="../main.js"></script>
