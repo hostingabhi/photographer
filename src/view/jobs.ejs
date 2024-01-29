@@ -8,10 +8,17 @@
                   <h5 class="card-title"><%= job.name %></h5>
                   <p class="card-text"><%= job.desc %>
                     </p>
-                    <a href="/ViewDetails/<%= job.id %>">
+                    <% if(locals.userEmail) { %>
+                      <a href="/ViewDetails/<%= job.id %>">
                         <button class="btn btn-primary btn-lg btn-block">View details
                         </button>
                     </a>
+                      <% }else{ %>
+                        <a>
+                          <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="modal" data-target="#register-Modal" >View details
+                          </button>
+                      </a>
+                      <% } %>
                 </div>
               </div>
             <% }); %>

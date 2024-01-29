@@ -41,25 +41,26 @@
         <% if(!locals.userEmail) { %>
           <li class="nav-item">
             <button class="transparent-button">
-            <a class="nav-link " data-toggle="modal" data-target="#register-Modal">Register</a>
-          </button>
+              <a class="nav-link " data-toggle="modal" data-target="#register-Modal">Register</a>
+            </button>
           </li>
           <li class="nav-item">
             <button class="transparent-button">
-            <a class="nav-link" data-toggle="modal" data-target="#login-modal">login</a>
-          </button>
+              <a class="nav-link" data-toggle="modal" data-target="#login-modal">login</a>
+            </button>
           </li>
 
-      <% }else{ %>
-        <li class="nav-item">
-          <a class="nav-link" href="/getform">Post a Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">logout</a>
-        </li>
+          <% }else{ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">logout</a>
+            </li>
 
-      <% } %>
-
+            <% } %>
+            <button class="transparent-button">
+              <li class="nav-item">
+                <a class="nav-link" href="/getform">Post a Portfolio</a>
+              </li>
+            </button>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search for jobs" aria-label="Search">
@@ -73,8 +74,8 @@
     <%-body%>
   </div>
 
-<%- include('./recruiter-register-form.ejs') %>
-<%- include('./recruiter-login-form.ejs') %>
+  <%- include('./recruiter-register-form.ejs') %>
+    <%- include('./recruiter-login-form.ejs') %>
 </body>
 
 </html>

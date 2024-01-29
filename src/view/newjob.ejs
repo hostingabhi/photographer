@@ -1,7 +1,7 @@
-<form method="post" action="/postjob" enctype="multipart/form-data">
-    <div class="container mt-5">
+<div class="container mt-5">
         <h2 class="mb-4">New Photographer Portfolio Form</h2>
         <!-- Bootstrap Form -->
+        <form method="post" action="/postjob" enctype="multipart/form-data">
           <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" name="name" required>
@@ -23,11 +23,13 @@
             <input type="url" class="form-control" id="linkedin" name="linkedin" required>
           </div>
           <div class="form-group">
-            <label for="photo">Choose Passport Size Photo:</label>
-            <input type="file" class="form-control-file" name="imageUrl" id="imageUrl" accept="images/*" required/>
+            <label for="imageUrl">Choose Passport Size Photo:</label>
+            <input type="file" class="form-control-file" name="imageUrl" id="imageUrl" accept="image/*" required/>
             </div>
+            <!-- <div class="form-group">
+              <label for="files">Upload Photo's for Your Gallry</label>
+              <input type="file" class="form-control-file" name="files" id="files"  accept="image/*" multiple>
+            </div> -->
           <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-      
-
-</form>
+      </form>
+</div>

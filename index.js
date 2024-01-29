@@ -6,6 +6,7 @@ import UserController from './src/controller/userController.js';
 import session from 'express-session';
 import { auth } from './src/middlewares/auth.middlewares.js';
 import { uploadFile } from './src/middlewares/file-upload.middleware.js';
+import { uploadFilemultiple } from './src/middlewares/uploadFilemultiple.js';
 import multer from 'multer';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -42,12 +43,12 @@ server.use(express.urlencoded({extended: true}));
 server.use(ejsLayouts)
 
 //create an instance of controller
-const jobcontoller = new JobController();
+const jobcontroller = new JobController();
 const userController = new UserController();
 //setup all the routes
-server.get("/", jobcontoller.home);
-server.get("/jobs",jobcontoller.getjobs)
-server.get("/ViewDetails/:id",jobcontoller.viewjobdetail)
+server.get("/", jobcontroller.home);
+server.get("/jobs",jobcontroller.getjobs)
+server.get("/ViewDetails/:id",auth,jobcontroller.viewjobdetail)
 //setup routes for user controller
 
 // registration route handler in index.js
@@ -57,13 +58,15 @@ server.get("/logout",auth,userController.logout)
 
 
 //curd opertaion on Job
-server.get("/getform", auth, jobcontoller.getform)
-server.post("/postjob", auth, uploadFile.single('imageUrl'), jobcontoller.postjob)
-server.get("/update-job/:id", auth, jobcontoller.getupdatejobview)
-server.post("/delete-job/:id",auth,jobcontoller.deletejob)
+server.get("/getform", jobcontroller.getform)
+server.post("/postjob",uploadFile.single('imageUrl'), jobcontroller.postjob)
+
+//uploadFilemultiple.array('files')
+
+server.get("/update-job/:id", auth, jobcontroller.getupdatejobview)
+server.post("/delete-job/:id",auth,jobcontroller.deletejob)
 
 
-//validationMiddleware,
 //Setup a Server
 server.listen(port,()=>{
     console.log(`server is Working on http://localhost:${port}`);

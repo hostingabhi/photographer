@@ -59,4 +59,30 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+      <% jobs.forEach(job => { %>
+          <div class="white-border-box" style="width: 18rem; background-color: transparent;">
+              <img src="<%= job.imageUrl %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                  
+                <h5 class="card-title"><%= job.name %></h5>
+                <p class="card-text"><%= job.desc %>
+                  </p>
+                  <% if(locals.userEmail) { %>
+                    <a href="/ViewDetails/<%= job.id %>">
+                      <button class="btn btn-primary btn-lg btn-block">View details
+                      </button>
+                  </a>
+                    <% }else{ %>
+                      <a>
+                        <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="modal" data-target="#register-Modal" >View details
+                        </button>
+                    </a>
+                    <% } %> 
+              </div>
+            </div>
+          <% }); %>
+  </div>
+</div>
 

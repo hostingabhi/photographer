@@ -6,7 +6,8 @@ export default class UserController {
         const { name, email, password } = req.body;
         UserModel.create(name, email, password);
         // Add the showLoginModal variable to the render method
-        res.render('home', {errorMessage:null,userEmail: req.session.userEmail});
+        let jobs = Photographer.get();
+        res.render('home', {jobs: jobs,errorMessage:null,userEmail: req.session.userEmail});
     }
 
     postLogin(req, res) {
@@ -18,7 +19,7 @@ export default class UserController {
         }else{
         req.session.userEmail = email;
         let jobs = Photographer.get();
-        res.render('jobs', { jobs: jobs,userEmail: req.session.userEmail });
+        res.render('home', { jobs: jobs,userEmail: req.session.userEmail,errorMessage:null });
         }
     }
 

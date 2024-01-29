@@ -6,7 +6,8 @@ import UserModel from '../model/user.model.js';
 export default class JobController{
     home(req, res){
         let user = UserModel.get();
-        res.render('home',{errorMessage:null,userEmail: req.session.userEmail})
+        let jobs = Photographer.get()
+        res.render('home',{jobs:jobs,errorMessage:null,userEmail: req.session.userEmail})
     }
     getjobs(req,res){
         let jobs = Photographer.get()
@@ -23,9 +24,11 @@ export default class JobController{
     postjob(req,res,next){
         const {name, description, contact, gmail, linkedin } = req.body;
         const imageUrl = 'Photo/'+ req.file.filename;
+        console.log(req.files);
         Photographer.addjob(name, description, contact, gmail, linkedin,imageUrl);
         let jobs = Photographer.get()
-        res.render('jobs',{jobs:jobs,errorMessage:null,userEmail: req.session.userEmail})
+        res.render('buy-plan');
+        // res.render('jobs',{jobs:jobs,errorMessage:null,userEmail: req.session.userEmail})
     }
 
     getupdatejobview(req,res,next){
